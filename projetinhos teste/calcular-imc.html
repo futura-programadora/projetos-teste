@@ -1,0 +1,61 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 font-roboto">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h1 class="text-2xl font-bold mb-6 text-center">Calculadora de IMC</h1>
+            <form id="bmiForm" class="space-y-4">
+                <div>
+                    <label for="height" class="block text-sm font-medium text-gray-700">Altura (cm)</label>
+                    <input type="number" id="height"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        required>
+                </div>
+                <div>
+                    <label for="weight" class="block text-sm font-medium text-gray-700">Peso (kg)</label>
+                    <input type="number" id="weight"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        required>
+                </div>
+                <button type="submit"
+                    class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Calcular
+                    IMC</button>
+            </form>
+            <div id="result" class="mt-6 text-center text-lg font-semibold"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('bmiForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const height = parseFloat(document.getElementById('height').value) / 100;
+            const weight = parseFloat(document.getElementById('weight').value);
+            const bmi = (weight / (height * height)).toFixed(2);
+
+            let resultText = `Seu IMC é ${bmi}. `;
+            if (bmi < 18.5) {
+                resultText += "Você está abaixo do peso.";
+            } else if (bmi < 24.9) {
+                resultText += "Você está com peso normal.";
+            } else if (bmi < 29.9) {
+                resultText += "Você está com sobrepeso.";
+            } else {
+                resultText += "Você está com obesidade.";
+            }
+
+            document.getElementById('result').innerText = resultText;
+        });
+    </script>
+</body>
+
+</html>
