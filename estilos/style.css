@@ -17,6 +17,9 @@ header {
     border-bottom: 2px solid #794bc3;
 }
 
+
+
+
 .link-header {
     font-weight: 600;
     padding: 0px 5px;
@@ -93,3 +96,5 @@ footer {
     background-color: white;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
+
+
