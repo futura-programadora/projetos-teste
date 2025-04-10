@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    
     <link rel="shortcut icon" href="./imagens/giocando.jpg" type="image/x-icon">
     <link rel="stylesheet" href="./estilos/style.css">
 </head>
@@ -31,7 +32,8 @@
     </header>
 
     <div class="header-apresentacao">
-       
+        <h1>Bem-vindo ao <span>GiocandoJ3</span></h1>
+        <p>Aqui você aprende Jogando</p>
     </div>
 
     <main class="container mx-auto px-4 py-8">
@@ -41,20 +43,26 @@
                 <img alt="Screenshot of website 1" src="./imagens/MagicMaster.jpeg" />
                 <div class="card-content">
                     <h3>ChemLab</h3>
-                    <p>Aprenda química de forma divertida e gratuita! Explore a matéria por meio de games interativos, quizzes desafiadores, videoaulas dinâmicas e resumos completos. Estude com prazer e torne o aprendizado de química ainda mais envolvente!</p>
-                    <a target="_blank" href="https://futura-programadora.github.io/ChemLab/paginas%20extras/home.html">Visitar Plataforma</a>
+                    <p>Aprenda química de forma divertida e gratuita! Explore a matéria por meio de games interativos,
+                        quizzes desafiadores, videoaulas dinâmicas e resumos completos. Estude com prazer e torne o
+                        aprendizado de química ainda mais envolvente!</p>
+                    <a target="_blank"
+                        href="https://futura-programadora.github.io/ChemLab/paginas%20extras/home.html">Visitar
+                        Plataforma</a>
                 </div>
             </div>
             <div class="card">
                 <img alt="Screenshot of website 2" src="./imagens/Cronica de Guerra.jpeg" />
                 <div class="card-content">
                     <h3>Crônica De Guerra</h3>
-                    <p>Desafie-se a explorar momentos históricos e civilizações antigas de maneira divertida e interativa. Com jogos e desafios baseados em eventos históricos, você vai aprender sobre diferentes períodos da história enquanto se diverte!</p>
+                    <p>Desafie-se a explorar momentos históricos e civilizações antigas de maneira divertida e
+                        interativa. Com jogos e desafios baseados em eventos históricos, você vai aprender sobre
+                        diferentes períodos da história enquanto se diverte!</p>
                     <a target="_blank" href="https://github.com/Dxn1xp/CronicaDeGuerraEXE">Baixar Game</a>
                 </div>
             </div>
             <div class="card">
-                <img alt="Screenshot of website 3" src="./imagens/giocando.jpg" />
+                <img alt="Screenshot of website 3" src="./imagens/splash-removebg-preview.png" />
                 <div class="card-content">
                     <h3>Adicionaremos em breve...</h3>
                     <p></p>
@@ -62,7 +70,7 @@
                 </div>
             </div>
             <div class="card">
-                <img alt="Screenshot of website 4" src="./imagens/giocando.jpg" />
+                <img alt="Screenshot of website 4" src="./imagens/splash-removebg-preview.png" />
                 <div class="card-content">
                     <h3>Adicionaremos em breve...</h3>
                     <p></p>
@@ -70,7 +78,7 @@
                 </div>
             </div>
             <div class="card">
-                <img alt="Screenshot of website 5" src="./imagens/giocando.jpg" />
+                <img alt="Screenshot of website 5" src="./imagens/splash-removebg-preview.png" />
                 <div class="card-content">
                     <h3>Adicionaremos em breve...</h3>
                     <p></p>
@@ -78,7 +86,7 @@
                 </div>
             </div>
             <div class="card">
-                <img alt="Screenshot of website 6" src="./imagens/giocando.jpg" />
+                <img alt="Screenshot of website 6" src="./imagens/splash-removebg-preview.png" />
                 <div class="card-content">
                     <h3>Adicionaremos em breve...</h3>
                     <p></p>
@@ -87,15 +95,36 @@
             </div>
         </div>
     </main>
+    <section onclick="chatBot()" class="chat-bot">
+        <img src="./imagens/splash-removebg-preview.png" alt="GioChat">
+
+    </section>
+    <section class="chat">
+        
+    </section>
 
     <footer class="bg-white shadow-md mt-8">
         <div class="container mx-auto px-4 py-4 text-center">
-            <p class="text-gray-700">&copy; <span id="current-year"></span> GiocandoJ3. Todos os direitos reservados.</p>
+            <p class="text-gray-700">&copy; <span id="current-year"></span> GiocandoJ3. Todos os direitos reservados.
+            </p>
             <script>
                 document.getElementById('current-year').textContent = new Date().getFullYear();
             </script>
         </div>
     </footer>
+    <script>
+        function chatBot() {
+
+            const chat = document.querySelector('.chat')
+            
+            if (chat.style.display === "none" || chat.style.display === "") {
+                chat.style.display = "block"
+            } else {
+                chat.style.display = "none"
+            }
+
+        }
+    </script>
 </body>
 
 </html>
