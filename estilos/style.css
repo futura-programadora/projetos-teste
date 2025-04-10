@@ -20,6 +20,31 @@ header {
     border-bottom: 2px solid #794bc3;
 }
 
+.container-contato {
+    padding: 25px;
+    border-radius: 10px;
+}
+
+form {
+    padding: 9px;
+
+    & label {
+        color: gray;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-bottom: 10px;
+    }
+
+    & input {
+        display: block;
+        border: 1px solid rgb(189, 189, 189);
+        border-radius: 10px;
+        padding: 8px;
+        width: 100%;
+
+    }
+}
+
 .header-apresentacao {
     background-color: var(--rocho);
     display: flex;
