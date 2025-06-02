@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Giocando</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-    
     <link rel="shortcut icon" href="./imagens/giocando.jpg" type="image/x-icon">
     <link rel="stylesheet" href="./estilos/style.css">
 </head>
 
-<body>
-    <header>
+<body class="bg-gray-100">
+    <!-- HEADER -->
+    <header class="bg-purple-900 text-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <img alt="Logo of the website directory" class="h-15 w-15 mr-3 rounded-full" height="50"
-                    src="./imagens/giocando.jpg" width="50" />
+                <img src="./imagens/giocando.jpg" alt="Logo" class="h-14 w-14 rounded-full mr-3">
                 <h1 class="text-2xl font-bold">GiocandoJ3</h1>
             </div>
             <nav>
-                <ul class="flex space-x-4">
-                    <li><a class="link-header" href="#">Inicio</a></li>
+                <ul class="flex space-x-6">
+                    <li><a class="link-header" href="#">Início</a></li>
                     <li><a class="link-header" href="./paginas giocando/sobre.html">Sobre</a></li>
                     <li><a class="link-header" href="./paginas giocando/contato.html">Contato</a></li>
                 </ul>
@@ -31,13 +30,15 @@
         </div>
     </header>
 
-    <div class="header-apresentacao">
+    <!-- APRESENTAÇÃO -->
+    <section class="header-apresentacao">
         <h1>Bem-vindo ao <span>GiocandoJ3</span></h1>
-        <p>Aqui você aprende Jogando</p>
-    </div>
+        <p>Aqui você aprende jogando!</p>
+    </section>
 
-    <main class="container mx-auto px-4 py-8">
-        <h2 class="text-3xl font-bold mb-6">Todas as Nossas Plataformas</h2>
+    <!-- PLATAFORMAS -->
+    <main class="container mx-auto px-4 py-10">
+        <h2 class="text-3xl font-bold mb-6 text-center">Nossas Plataformas</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <div class="card">
                 <img alt="Screenshot of website 1" src="./imagens/MagicMaster.jpeg" />
@@ -95,34 +96,104 @@
             </div>
         </div>
     </main>
-    <section onclick="chatBot()" class="chat-bot">
+
+    <!-- DIFERENCIAIS -->
+    <section class="bg-white py-10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8 text-center">Por que escolher o GiocandoJ3?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <i class="fas fa-gamepad text-5xl text-purple-700 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Aprendizado Divertido</h3>
+                    <p>Jogos educativos que tornam o aprendizado muito mais leve e divertido.</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-lightbulb text-5xl text-purple-700 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Didática Moderna</h3>
+                    <p>Metodologias inovadoras para aprender de forma prática, visual e interativa.</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-users text-5xl text-purple-700 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Para Todas as Idades</h3>
+                    <p>Do iniciante ao avançado, temos conteúdo para crianças, jovens e adultos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="bg-purple-50 py-10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8 text-center">Depoimentos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="mb-4">"Simplesmente incrível! Meu filho aprendeu química se divertindo. Super recomendo."
+                    </p>
+                    <h4 class="font-semibold">- Maria Silva</h4>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="mb-4">"Adorei a proposta! Aprender jogando é algo que deveria estar em todas as escolas."
+                    </p>
+                    <h4 class="font-semibold">- João Pedro</h4>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="mb-4">"O melhor site que encontrei para estudar História de forma divertida."</p>
+                    <h4 class="font-semibold">- Carla Mendes</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARCEIROS -->
+    <section class="bg-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">Nossos Desenvolvedores</h2>
+            <div class="flex flex-wrap justify-center items-center gap-6">
+                <div class="flex flex-col items-center">
+                    <img src="./imagens/giocando.jpg" alt="Desenvolvedor" class="w-24 h-24 rounded-full mb-2">
+                    <p class="font-semibold">Futura Programadora</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="./imagens/giocando.jpg" alt="Desenvolvedor" class="w-24 h-24 rounded-full mb-2">
+                    <p class="font-semibold">Dxn1xp</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="./imagens/giocando.jpg" alt="Desenvolvedor" class="w-24 h-24 rounded-full mb-2">
+                    <p class="font-semibold">Você em breve...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTÃO DE CHAT -->
+    <section onclick="chatBot()" class="chat-bot fixed bottom-5 right-5 cursor-pointer">
         <img src="./imagens/splash-removebg-preview.png" alt="GioChat">
-
-    </section>
-    <section class="chat">
-        
     </section>
 
-    <footer class="bg-white shadow-md mt-8">
-        <div class="container mx-auto px-4 py-4 text-center">
-            <p class="text-gray-700">&copy; <span id="current-year"></span> GiocandoJ3. Todos os direitos reservados.
-            </p>
-            <script>
-                document.getElementById('current-year').textContent = new Date().getFullYear();
-            </script>
+    <!-- JANELA DE CHAT -->
+    <section class="chat fixed bottom-24 right-5">
+        <h3 class="font-bold mb-2">Chat do Giocando</h3>
+        <p>Em breve um chat inteligente para te ajudar!</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-purple-900 text-white">
+        <div class="container mx-auto px-4 py-6 text-center">
+            <p>&copy; <span id="current-year"></span> GiocandoJ3. Todos os direitos reservados.</p>
+            <div class="flex justify-center gap-6 mt-4">
+                <a href="#"><i class="fab fa-instagram text-2xl hover:text-pink-500"></i></a>
+                <a href="#"><i class="fab fa-github text-2xl hover:text-gray-400"></i></a>
+                <a href="#"><i class="fab fa-linkedin text-2xl hover:text-blue-400"></i></a>
+            </div>
         </div>
     </footer>
+
     <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
         function chatBot() {
-
-            const chat = document.querySelector('.chat')
-            
-            if (chat.style.display === "none" || chat.style.display === "") {
-                chat.style.display = "block"
-            } else {
-                chat.style.display = "none"
-            }
-
+            const chat = document.querySelector('.chat');
+            chat.style.display = (chat.style.display === "none" || chat.style.display === "") ? "block" : "none";
         }
     </script>
 </body>

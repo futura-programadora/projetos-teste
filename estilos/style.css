@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap');
 
-
 :root {
     --rocho: #170039;
     --rocho-claro: #5C329E;
@@ -13,80 +12,25 @@ body {
     background-color: #F2F2F2;
 }
 
+/* HEADER */
 header {
-    display: flex;
-    background-color: var(--rocho);
+    background-color: var(--roxo-escuro);
     color: var(--branco);
-    border-bottom: 2px solid #794bc3;
-}
-
-.container-contato {
-    padding: 25px;
-    border-radius: 10px;
-}
-
-form {
-    padding: 9px;
-
-    & label {
-        color: gray;
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-        margin-bottom: 10px;
-    }
-
-    & input {
-        display: block;
-        border: 1px solid rgb(189, 189, 189);
-        border-radius: 10px;
-        padding: 8px;
-        width: 100%;
-
-    }
-}
-
-.header-apresentacao {
-    background-color: var(--rocho);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    height: 500px;
-    color: white;
-
-    & h1 {
-        text-align: center;
-        font-family: 'Press Start 2P' , cursive;
-        font-size: 30px;
-        margin-bottom: 10px;
-
-        & span {
-            color: #794bc3;
-        }
-    }
-}
-
-.rocho {
-    background-color: var(--rocho);
-    height: 100px;
-}
-
-.quem-somos {
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: -90px;
-    background-color: white;
-    padding: 50px 10px;
-    text-align: center;
-    border-radius: 10px;
-    margin-bottom: 50px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--roxo-claro);
 }
 
 .link-header {
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0px 5px;
     position: relative;
-    padding-bottom: 0.75rem;
+    padding-bottom: 6px;
+    transition: color 0.3s;
+}
+
+.link-header:hover {
+    color: #ad9de4;
 }
 
 .link-header::after {
@@ -101,9 +45,44 @@ form {
 }
 
 .link-header:hover::after {
-    width: 80%;
+    width: 100%;
 }
 
+/* APRESENTAÇÃO */
+.header-apresentacao {
+    background-color: var(--rocho);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 500px;
+    color: white;
+}
+
+.header-apresentacao h1 {
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.header-apresentacao h1 span {
+    color: #794bc3;
+}
+
+/* QUEM SOMOS */
+.quem-somos {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -90px;
+    background-color: white;
+    padding: 50px 10px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+/* CARDS */
 .card {
     background-color: rgba(46, 12, 97, 0.815);
     box-shadow: 2px 3px 10px #5C329E;
@@ -152,51 +131,123 @@ form {
     text-decoration: underline;
 }
 
-.chat-bot {
-    display: flex;
-    position: relative;
-    width: 100px;
-    border-radius: 50px;
-    margin-left: auto;
+/* FORMULÁRIO */
+.container-contato {
+    padding: 25px;
+    border-radius: 10px;
+}
 
-    & img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50px;
-        background-color: white;
-    }
+form {
+    padding: 9px;
+}
+
+form label {
+    color: gray;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+form input {
+    display: block;
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 10px;
+    padding: 8px;
+    width: 100%;
+}
+
+/* CHAT DESIGN */
+.chat-bot {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.chat-bot img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .chat-bot:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s ease-in-out;
-    margin-right: 5px;
+    transform: scale(1.1);
 }
 
 .chat {
-    position: relative;
-    display: none;
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    width: 350px;
     height: 500px;
-    width: 80%;
-    margin: auto;
-    padding: 15px;
-    border-radius: 10px;
     background-color: white;
-    border: 1px solid rgba(151, 100, 218, 0.63);
-    box-shadow: 2px 3px 10px #976bdf;
+    border: 2px solid #794bc3;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 101;
+    padding: 15px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.back > a{
+.chat-header {
+    background-color: var(--rocho);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.chat-messages {
+    flex: 1;
+    margin-top: 10px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.chat-input button {
+    background-color: var(--rocho-claro);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chat-input button:hover {
+    background-color: #794bc3;
+}
+
+/* BOTÕES E BACK */
+.back > a {
     text-decoration: none;
     color: black;
     font-size: 20px;
     padding: 20px;
     margin-top: 20px;
-    border: 1px solid ;
-
+    border: 1px solid;
 }
 
-
+/* FORM CONTATO */
 .contact-container {
     max-width: 80%;
     margin: 0 auto;
@@ -236,14 +287,14 @@ textarea {
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
-    border-color: #6a5acd; /* Cor do foco */
+    border-color: #6a5acd;
     outline: none;
 }
 
 .submit-button {
     width: 100%;
     padding: 10px;
-    background-color: #6a5acd; /* Cor roxa */
+    background-color: #6a5acd;
     color: white;
     border: none;
     border-radius: 4px;
@@ -252,13 +303,22 @@ textarea:focus {
 }
 
 .submit-button:hover {
-    background-color: #5a4fcf; /* Cor roxa mais escura no hover */
+    background-color: #5a4fcf;
 }
 
+/* FOOTER */
 footer {
     padding: 10px;
     margin-bottom: 10px;
     text-align: center;
     background-color: white;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* RESPONSIVO */
+@media (max-width: 500px) {
+    .chat {
+        width: 90%;
+        right: 5%;
+    }
 }
