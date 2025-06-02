@@ -14,13 +14,14 @@ body {
 
 /* HEADER */
 header {
-    background-color: var(--roxo-escuro);
+    background: linear-gradient(90deg, var(--rocho) 0%, var(--rocho-claro) 100%);
     color: var(--branco);
     position: sticky;
     top: 0;
     z-index: 50;
     backdrop-filter: blur(10px);
-    border-bottom: 2px solid var(--roxo-claro);
+    border-bottom: 2px solid var(--rocho-claro);
+    transition: background 0.3s ease;
 }
 
 .link-header {
@@ -50,7 +51,7 @@ header {
 
 /* APRESENTAÇÃO */
 .header-apresentacao {
-    background-color: var(--rocho);
+    background: linear-gradient(90deg, var(--rocho) 0%, var(--rocho-claro) 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,7 +69,7 @@ header {
 }
 
 .header-apresentacao h1 span {
-    color: #794bc3;
+    color: #9365db;
 }
 
 /* QUEM SOMOS */
@@ -84,9 +85,9 @@ header {
 
 /* CARDS */
 .card {
-    background-color: rgba(46, 12, 97, 0.815);
-    box-shadow: 2px 3px 10px #5C329E;
-    border: 1px solid rgb(106, 67, 158);
+    background-color: rgb(39, 1, 101);
+    box-shadow: 2px 3px 10px #5b329e8b;
+    border: 1px solid rgba(137, 85, 204, 0.773);
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.2s ease-in-out;
@@ -122,7 +123,7 @@ header {
 }
 
 .card-content a {
-    color: #dbb5ff;
+    color: #f4e9ff;
     font-weight: bold;
     text-decoration: none;
 }
