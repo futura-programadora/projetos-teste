@@ -132,6 +132,11 @@ header {
     text-decoration: underline;
 }
 
+/*PARCEIROS*/
+#parceiros-container > div > img {
+    border-radius: 10px;
+}
+
 /* FORMULÁRIO */
 .container-contato {
     padding: 25px;
