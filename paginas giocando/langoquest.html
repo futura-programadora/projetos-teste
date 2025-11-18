@@ -1,0 +1,299 @@
+<!-- Lang oQuest — Tema: Jogo Python com Camaleão (versão interativa de desafios) -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lang oQuest — Jogo Python (Camaleão)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#08121a;--panel:#0f1720;--accent1:#39b54a;--accent2:#1fb7d4;--accent3:#ff8a00;--muted:#9aa7b2;--glass: rgba(255,255,255,0.04);}*
+    {box-sizing:border-box}body{margin:0;min-height:100vh;background:var(--bg);color:#e6f0f2;font-family:Poppins,system-ui;display:flex;flex-direction:column}
+
+    /* Hover */
+    .btn:hover, .play:hover, .terminal button:hover{opacity:0.95;transform:translateY(-2px);transition:0.18s}
+
+    /* --- layout (mantive tudo do seu código original, apenas acrescentei interatividade) --- */
+    .hero{display:grid;grid-template-columns:1fr 460px;gap:30px;align-items:center;padding:36px;max-width:1200px;margin:28px auto;width:calc(100% - 56px)}
+    .hero-left{padding:30px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:14px;border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px)}
+    .kicker{display:inline-block;padding:6px 12px;border-radius:999px;background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#042428;font-weight:600;font-size:12px}
+    h1{margin:18px 0 10px;font-size:34px;line-height:1.05}h1 .brand{color:var(--accent1);text-shadow:0 6px 20px rgba(57,181,74,0.06)}p.lead{color:var(--muted);margin:0 0 18px}
+    .hero-cta{display:flex;gap:12px;align-items:center}.btn{padding:12px 18px;border-radius:10px;border:none;cursor:pointer;font-weight:600}.btn-primary{background:linear-gradient(90deg,var(--accent1),#6be08a);color:#062512;box-shadow:0 6px 20px rgba(57,181,74,0.12)}.btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .hero-right{display:flex;align-items:center;justify-content:center}.card-image{width:420px;height:300px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);box-shadow:0 20px 60px rgba(2,6,23,0.6);background:linear-gradient(180deg,#071221 0%, #071426 100%);display:flex;align-items:center;justify-content:center}.card-image img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .hud{display:flex;gap:12px;margin-top:18px;align-items:center}.xp{flex:1;background:linear-gradient(90deg,rgba(255,255,255,0.02),transparent);padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}.xp .bar{height:12px;background:linear-gradient(90deg,var(--accent2),var(--accent1));border-radius:8px;width:48%}.badge{background:var(--panel);padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);font-weight:600}
+
+    .layout{display:grid;grid-template-columns:260px 1fr;gap:22px;max-width:1200px;margin:18px auto;padding:0 28px 60px}.sidebar{background:var(--panel);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);height:fit-content}.sidebar h3{margin:6px 0 12px;color:var(--accent2);font-size:13px}.nav-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}.nav-list a{display:block;padding:10px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:600}.nav-list a.active{background:linear-gradient(90deg,rgba(31,183,212,0.06),rgba(57,181,74,0.05));color:#fff;border:1px solid rgba(255,255,255,0.03)}
+
+    .panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);margin-bottom:16px}.section-title{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--accent2);font-size:14px}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}.challenge{padding:14px;border-radius:10px;background:linear-gradient(180deg,#08121a,#0b1720);border:1px solid rgba(255,255,255,0.02)}.challenge h4{margin:0 0 8px}.challenge p{margin:0;color:var(--muted);font-size:13px}.play{margin-top:10px;padding:8px 10px;border-radius:8px;background:linear-gradient(90deg,var(--accent3),#ffb26a);color:#081219;font-weight:700;border:none}
+
+    .terminal{background:#06121a;color:#9fe8ff;padding:14px;border-radius:10px;font-family:monospace;font-size:13px;border:1px solid rgba(31,183,212,0.06)}.terminal .output{min-height:80px;white-space:pre-wrap}.terminal .input{display:flex;gap:8px;align-items:center;margin-top:10px}.terminal input{flex:1;background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:6px;color:#e6f0f2}.terminal button{padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;color:#001919;font-weight:700}
+
+    footer{max-width:1200px;margin:18px auto;padding:18px;color:var(--muted);text-align:center}
+
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;z-index:80}
+    .modal{width:92%;max-width:760px;background:linear-gradient(180deg,#071426,#071221);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.06);box-shadow:0 30px 80px rgba(2,6,23,0.7);color:#eaf9ff}
+    .modal h3{margin:0 0 8px}
+    .modal .actions{display:flex;gap:8px;margin-top:12px}
+    .hidden{display:none}
+
+    @media (max-width:980px){.hero{grid-template-columns:1fr;gap:14px}.layout{grid-template-columns:1fr;padding:0 18px}.cards{grid-template-columns:repeat(2,1fr)}.hero-right{order:-1}}@media(max-width:640px){.cards{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <span class="kicker">Missão • Iniciar</span>
+      <h1><span class="brand">Lang oQuest</span> — Jogo de Python</h1>
+      <p class="lead">Aprenda Python resolvendo quests temáticas com o Camaleão — desafios progressivos, feedback pedagógico e HUD de progresso.</p>
+
+      <div class="hud">
+        <div class="xp">
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:6px"><span>XP</span><span id="xp-text">480 / 1200</span></div>
+          <div style="background:rgba(255,255,255,0.03);height:12px;border-radius:8px;overflow:hidden">
+            <div id="xp-bar" class="bar" style="width:48%"></div>
+          </div>
+        </div>
+        <div class="badge" id="level-badge">Nível 4</div>
+      </div>
+
+      <div style="margin-top:16px" class="hero-cta">
+        <button class="btn btn-primary" id="btnStart">Iniciar Missão</button>
+        <button class="btn btn-outline" id="btnDemo">Ver Demo</button>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="card-image"><img src="../imagens/lango.png" alt="Camaleão Lang oQuest"></div>
+    </div>
+  </section>
+
+  <!-- LAYOUT principal -->
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Seções</h3>
+      <nav>
+        <ul class="nav-list">
+          <li><a class="active" href="#intro">Introdução</a></li>
+          <li><a href="#desafios">Desafios</a></li>
+          <li><a href="#terminal">Terminal</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+        </ul>
+      </nav>
+
+      <div style="margin-top:12px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:8px">Status da partida</div>
+        <div style="display:flex;gap:8px">
+          <div style="flex:1;background:linear-gradient(90deg,var(--accent2),var(--accent1));height:8px;border-radius:6px"></div>
+          <div style="width:40px;text-align:center;background:rgba(255,255,255,0.03);border-radius:6px">Boss</div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section id="intro" class="panel">
+        <div class="section-title">Introdução</div>
+        <p>O Lang oQuest é um jogo educativo criado por alunos da E.E. Parque Jurema III para ensinar Python com estilo: mascote camaleão, mecânicas de missão e feedback instantâneo. Facilitar o aprendizado de Python pormeio de um
+         jogo interativo com quiz e feedbacks.
+        - Ensinar fundamentos de Python com desafiosinterativos;
+       - Reforçar o conteúdo com feedbacks curtos e claros;
+       - Utilizargamificação para engajar;
+       - Desenvolverraciocíniológico;
+        - Promovereducaçãoacessível e sustentável (ODS 4, 8, 9 e
+        12).</p>
+      </section>
+
+      <section id="desafios" class="panel">
+        <div class="section-title">Desafios</div>
+        <div class="cards">
+          <div class="challenge">
+            <h4>Variáveis & Tipos</h4>
+            <p>Aprenda a guardar e manipular valores.</p>
+            <button class="play" data-challenge="vars">Jogar</button>
+          </div>
+          <div class="challenge">
+            <h4>Loops & Condicionais</h4>
+            <p>Estruturas de controle para automatizar tarefas.</p>
+            <button class="play" data-challenge="loops">Jogar</button>
+          </div>
+          <div class="challenge">
+            <h4>Funções</h4>
+            <p>Crie blocos de código reutilizáveis.</p>
+            <button class="play" data-challenge="func">Jogar</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Terminal fake com digitação e resposta -->
+      <section id="terminal" class="panel">
+        <div class="section-title">Terminal Interativo</div>
+        <div class="terminal">
+          <div id="terminal-output" class="output"># Terminal inicializado...\n</div>
+          <div class="input">
+            <input id="terminal-input" placeholder="Digite um comando (ex: help, start, status)" />
+            <button id="terminal-send">Enviar</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="equipe" class="panel">
+        <div class="section-title">Equipe</div>
+        <p>Bruna Viana  • Kauã francisco  • Eloá • Felipe • Guilherme • Lucas Tony • Maria Nogueira</p>
+      </section>
+    </main>
+  </div>
+
+  <footer>© 2024 Lang oQuest — Jogo Educacional Python • Desenvolvido por alunos da E.E. Parque Jurema III</footer>
+
+  <!-- Modal para desafios -->
+  <div id="challenge-modal" class="modal-backdrop">
+    <div class="modal" role="dialog" aria-modal="true">
+      <h3 id="modal-title">Desafio</h3>
+      <p id="modal-desc">Descrição do desafio.</p>
+
+      <div id="modal-content">
+        <!-- conteúdo dinâmico do desafio -->
+      </div>
+
+      <div class="actions">
+        <button id="btn-submit" class="btn btn-primary">Enviar Resposta</button>
+        <button id="btn-close" class="btn btn-outline">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Estado do jogador (simples, no front-end)
+    const state = {xp:480, xpNeeded:1200, level:4};
+    const xpBar = document.getElementById('xp-bar');
+    const xpText = document.getElementById('xp-text');
+    const levelBadge = document.getElementById('level-badge');
+
+    function updateHUD(){
+      const pct = Math.min(100, Math.round((state.xp / state.xpNeeded) * 100));
+      xpBar.style.width = pct + '%';
+      xpText.textContent = state.xp + ' / ' + state.xpNeeded;
+      levelBadge.textContent = 'Nível ' + state.level;
+    }
+
+    // Terminal helpers
+    const termOut = document.getElementById('terminal-output');
+    function termLog(t){ termOut.textContent += t + '\n'; termOut.scrollTop = termOut.scrollHeight; }
+
+    // inicializa
+    updateHUD(); termLog("Bem-vindo ao Lang oQuest! Digite 'help' para começar.");
+
+    // Botões principais
+    document.getElementById('btnStart').addEventListener('click', ()=>{
+      termLog('Missão iniciada! Boa sorte, aprendiz.');
+      // pequenos efeitos: dar XP inicial
+      state.xp = Math.min(state.xp + 10, state.xpNeeded);
+      updateHUD();
+    });
+
+    document.getElementById('btnDemo').addEventListener('click', ()=>{
+      termLog('Abrindo demo...');
+      alert('Aqui seria aberta a demo real do jogo ');
+    });
+
+    // Terminal commands
+    document.getElementById('terminal-send').addEventListener('click', runCmd);
+    document.getElementById('terminal-input').addEventListener('keydown', (e)=>{ if(e.key==='Enter') runCmd(); });
+
+    function runCmd(){
+      const input = document.getElementById('terminal-input');
+      const cmd = input.value.trim().toLowerCase(); if(!cmd) return;
+      termLog('>>> ' + cmd);
+      if(cmd === 'help') termLog('Comandos: help, start, status, perfil');
+      else if(cmd === 'start') termLog('Carregando missão... pronto!');
+      else if(cmd === 'status') termLog(`XP: ${state.xp}/${state.xpNeeded} • Nível: ${state.level}`);
+      else if(cmd === 'perfil') termLog('Usuário: Jogador • Função: Aprendiz Python');
+      else termLog('Comando não reconhecido: ' + cmd);
+      input.value = '';
+    }
+
+    // Desafios interativos
+    const challenges = {
+      vars: {
+        title: 'Variáveis & Tipos',
+        desc: 'Qual é o tipo de dado do valor 3.14 em Python? (responda: int, float, str, bool)',
+        check: (ans)=> ans.trim().toLowerCase() === 'float',
+        reward: 60
+      },
+      loops: {
+        title: 'Loops & Condicionais',
+        desc: 'Quantas vezes o laço for i in range(3): irá executar? (responda com número)',
+        check: (ans)=> ans.trim() === '3',
+        reward: 80
+      },
+      func: {
+        title: 'Funções',
+        desc: 'Como se declara uma função em Python que não recebe argumentos? (responda com: def nome():)',
+        check: (ans)=> ans.replace(/\s/g,'').toLowerCase().startsWith('def') && ans.includes('()'),
+        reward: 100
+      }
+    };
+
+    const modal = document.getElementById('challenge-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalContent = document.getElementById('modal-content');
+    const btnSubmit = document.getElementById('btn-submit');
+    const btnClose = document.getElementById('btn-close');
+    let currentChallenge = null;
+
+    // delegação para todos os botões "Jogar"
+    document.querySelectorAll('.play').forEach(btn => {
+      btn.addEventListener('click', ()=>{
+        const id = btn.getAttribute('data-challenge');
+        openChallenge(id);
+      });
+    });
+
+    function openChallenge(id){
+      const ch = challenges[id];
+      if(!ch) { termLog('Desafio não encontrado: ' + id); return; }
+      currentChallenge = id;
+      modalTitle.textContent = ch.title;
+      modalDesc.textContent = ch.desc;
+      modalContent.innerHTML = "\n        <div style=\"margin-top:10px\">\n          <label style=\"display:block;margin-bottom:6px;color:var(--muted)\">Sua resposta:</label>\n          <input id=\"challenge-input\" style=\"width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e6f0f2\" placeholder=\"Digite aqui\">\n          <div id=\"challenge-feedback\" style=\"margin-top:10px;color:var(--muted)\"></div>\n        </div>\n      ";
+      modal.style.display = 'flex';
+    }
+
+    btnClose.addEventListener('click', closeModal);
+    function closeModal(){ modal.style.display = 'none'; currentChallenge = null; }
+
+    btnSubmit.addEventListener('click', ()=>{
+      if(!currentChallenge) return;
+      const input = document.getElementById('challenge-input');
+      const feedback = document.getElementById('challenge-feedback');
+      const ch = challenges[currentChallenge];
+      const answer = input.value || '';
+      if(ch.check(answer)){
+        feedback.style.color = '#9ee8b0'; feedback.textContent = 'Resposta correta! +' + ch.reward + ' XP';
+        // aplicar recompensa
+        state.xp += ch.reward; if(state.xp >= state.xpNeeded){ state.xp = state.xp - state.xpNeeded; state.level += 1; state.xpNeeded = Math.round(state.xpNeeded * 1.25); }
+        updateHUD();
+        termLog(`Desafio ${ch.title} concluído. Ganhou ${ch.reward} XP.`);
+        // oferecer fechar depois de um tempo
+        setTimeout(()=>{ closeModal(); }, 1000);
+      } else {
+        feedback.style.color = '#ffb3a7'; feedback.textContent = 'Resposta incorreta. Tente novamente.';
+        termLog(`Tentativa incorreta no desafio ${ch.title}.`);
+      }
+    });
+
+    // fechar modal ao clicar fora
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+
+    // accessibility: fechar com esc
+    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.style.display === 'flex') closeModal(); });
+
+  </script>
+</body>
+</html>
