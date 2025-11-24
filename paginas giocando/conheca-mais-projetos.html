@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conheça Mais Projetos - GiocandoJ3</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="./imagens/giocando.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../estilos/conheca-mais-projetos.css">
+    <link rel="stylesheet" href="../estilos/style.css">
+</head>
+
+<body class="body-bg">
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-area">
+                <img src="../imagens/giocando.jpg" alt="Logo" class="logo-img">
+                <h1 class="site-title">GiocandoJ3</h1>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a class="link-header" href="../index.html">Início</a></li>
+                    <li><a class="link-header" href="./sobre.html">Sobre</a></li>
+                    <li><a class="link-header" href="./contato.html">Contato</a></li>
+                    <li><a class="link-header" href="./conheca-mais-projetos.html">Mais Projetos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- APRESENTAÇÃO -->
+    <section class="header-apresentacao">
+        <h1>Conheça Mais <span>Projetos</span></h1>
+        <p>Explore nossos projetos institucionais e veja como transformamos o aprendizado em experiências
+            interativas.</p>
+    </section>
+
+    <!-- LISTA DE PROJETOS -->
+    <main class="container">
+        <h2 class="titulo-section">Projetos Institucionais</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="../imagens/giocando.jpg" alt="Projeto 1">
+                <div class="card-content">
+                    <h3>Projeto 1</h3>
+                    <p>Descrição breve do projeto, seus objetivos e impactos. Ideal para estudantes e educadores.</p>
+                    <a href="#">Em breve...</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../imagens/giocando.jpg" alt="Projeto 1">
+                <div class="card-content">
+                    <h3>Projeto 1</h3>
+                    <p>Descrição breve do projeto, seus objetivos e impactos. Ideal para estudantes e educadores.</p>
+                    <a href="#">Em breve...</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../imagens/giocando.jpg" alt="Projeto 3">
+                <div class="card-content">
+                    <h3>Projeto 3</h3>
+                    <p>Descrição breve do projeto, seus objetivos e impactos. Explorando conhecimento de forma interativa.</p>
+                    <a href="#">Em breve...</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../imagens/giocando.jpg" alt="Projeto 4">
+                <div class="card-content">
+                    <h3>Projeto 4</h3>
+                    <p>Descrição breve do projeto, seus objetivos e impactos. Desenvolvido para engajar e ensinar.</p>
+                    <a href="#">Em breve...</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; <span id="current-year"></span> GiocandoJ3. Todos os direitos reservados.</p>
+            <div class="social">
+                <a href="https://www.instagram.com/giocandoj3/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

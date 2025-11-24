@@ -1,119 +1,105 @@
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Giocando - Sobre Nós</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre Nós - GiocandoJ3</title>
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../estilos/style.css" />
-    <link rel="stylesheet" href="../estilos/sobre.css" />
-    <link rel="shortcut icon" href="../imagens/giocando.jpg" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="../imagens/giocando.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../estilos/sobre.css">
+    <link rel="stylesheet" href="../estilos/style.css">
 </head>
 
-<body>
-    <header class="bg-purple-900 text-white shadow-md">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="../imagens/giocando.jpg" alt="Logo" class="h-14 w-14 rounded-full mr-3" />
-                <h1 class="hidden sm:flex text-2xl font-bold">GiocandoJ3</h1>
+<body class="body-bg">
+
+    <!-- HEADER PADRÃO -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-area">
+                <img src="../imagens/giocando.jpg" alt="Logo" class="logo-img">
+                <h1 class="site-title">GiocandoJ3</h1>
             </div>
             <nav>
-                <ul class="flex space-x-6">
+                <ul class="menu">
                     <li><a class="link-header" href="../index.html">Início</a></li>
-                    <li><a class="link-header" href="#">Sobre</a></li>
-                    <li><a class="link-header" href="../paginas giocando/contato.html">Contato</a></li>
+                    <li><a class="link-header" href="./sobre.html">Sobre</a></li>
+                    <li><a class="link-header" href="./contato.html">Contato</a></li>
+                    <li><a class="link-header" href="./conheca-mais-projetos.html">Mais Projetos</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    
 
-    <main class="container mx-auto p-6 max-w-5xl">
+    <main class="main-container">
         <!-- Introdução -->
-        <section class="text-center mb-16 px-4">
-            <h1 class="text-4xl font-extrabold text-purple-900 mb-4">Sobre Nós</h1>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                Transformamos o aprendizado em uma aventura interativa e divertida. Descubra como a Giocando está
-                revolucionando a educação com tecnologia e games!
-            </p>
+        <section class="intro text-center">
+            <h1>Sobre Nós</h1>
+            <p>Transformamos o aprendizado em uma aventura interativa e divertida. Descubra como a Giocando está
+                revolucionando a educação com tecnologia e games!</p>
         </section>
 
         <!-- Quem Somos -->
-        <section class="grid md:grid-cols-2 gap-10 items-center mb-20 px-4">
+        <section class="quem-somos grid">
             <div>
-                <h2 class="text-3xl font-bold mb-4 text-purple-900">Quem Somos</h2>
-                <p class="text-gray-700 text-lg leading-relaxed">
-                    Somos uma equipe apaixonada por inovação, formada por alunos do curso técnico em Desenvolvimento de
+                <h2>Quem Somos</h2>
+                <p>Somos uma equipe apaixonada por inovação, formada por alunos do curso técnico em Desenvolvimento de
                     Sistemas. Nossa missão é criar uma plataforma de games educacionais que torne o aprendizado tão
-                    divertido quanto jogar.
-                </p>
+                    divertido quanto jogar.</p>
             </div>
-            <img src="../imagens/equipe Giocando.jpg" alt="Equipe Giocando"
-                class="rounded-xl shadow-lg border-4 border-purple-200 max-w-full h-auto" />
+            <img src="../imagens/equipe Giocando.jpg" alt="Equipe Giocando">
         </section>
 
         <!-- O Que Fazemos -->
-        <section class="grid md:grid-cols-2 gap-10 items-center mb-20 px-4">
-            <img src="../imagens/learning.png" alt="O que fazemos"
-                class="rounded-xl shadow-lg border-4 border-purple-200 max-w-[280px] w-full mx-auto" />
+        <section class="o-que-fazemos grid">
+            <img src="../imagens/learning.png" alt="O que fazemos">
             <div>
-                <h2 class="text-3xl font-bold mb-4 text-purple-900">O Que Fazemos</h2>
-                <p class="text-gray-700 text-lg leading-relaxed">
-                    Desenvolvemos jogos educativos que transformam matérias como matemática, história, biologia e até
-                    programação em aventuras empolgantes. Jogar, aprender e evoluir são os nossos pilares.
-                </p>
+                <h2>O Que Fazemos</h2>
+                <p>Desenvolvemos jogos educativos que transformam matérias como matemática, história, biologia e até
+                    programação em aventuras empolgantes. Jogar, aprender e evoluir são os nossos pilares.</p>
             </div>
         </section>
 
         <!-- Nosso Objetivo -->
-        <section class="bg-purple-100 p-8 rounded-xl shadow-md mb-20 px-4">
-            <h2 class="text-3xl font-bold mb-6 text-purple-900 text-center">Nosso Objetivo</h2>
-            <p class="text-gray-700 text-lg leading-relaxed text-center max-w-4xl mx-auto">
-                Tornar o aprendizado divertido, acessível e significativo. Queremos que cada aluno sinta que estudar é
-                tão emocionante quanto vencer desafios em um game.
-            </p>
+        <section class="nosso-objetivo">
+            <h2>Nosso Objetivo</h2>
+            <p>Tornar o aprendizado divertido, acessível e significativo. Queremos que cada aluno sinta que estudar é
+                tão emocionante quanto vencer desafios em um game.</p>
         </section>
 
         <!-- Nossa Inspiração -->
-        <section class="grid md:grid-cols-2 gap-10 items-center mb-20 px-4">
+        <section class="nossa-inspiracao grid">
             <div>
-                <h2 class="text-3xl font-bold mb-4 text-purple-900">Nossa Inspiração</h2>
-                <p class="text-gray-700 text-lg leading-relaxed">
-                    Inspirados no dia a dia dos jovens, que vivem conectados e apaixonados por games, unimos educação,
-                    tecnologia e diversão. Assim, oferecemos uma nova forma de aprender e se desenvolver.
-                </p>
+                <h2>Nossa Inspiração</h2>
+                <p>Inspirados no dia a dia dos jovens, que vivem conectados e apaixonados por games, unimos educação,
+                    tecnologia e diversão. Assim, oferecemos uma nova forma de aprender e se desenvolver.</p>
             </div>
-            <img src="../imagens/inspiracao.png" alt="Nossa Inspiração"
-                class="rounded-xl shadow-lg border-4 border-purple-200 max-w-[280px] w-full mx-auto" />
+            <img src="../imagens/inspiracao.png" alt="Nossa Inspiração">
         </section>
 
         <!-- O Que Vem Por Aí -->
-        <section
-            class="bg-gradient-to-r from-purple-900 to-purple-600 p-8 rounded-xl text-white shadow-lg mb-20 px-4 max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-6 text-center text-white">O Que Vem Por Aí 🚀</h2>
-            <ul class="list-disc list-inside text-lg space-y-3 max-w-lg mx-auto text-white">
+        <section class="vem-poraí">
+            <h2>O Que Vem Por Aí 🚀</h2>
+            <ul>
                 <li>Quizzes desafiadores para testar seus conhecimentos.</li>
                 <li>Conteúdos explicativos fáceis de entender.</li>
                 <li>Vídeos animados para aprender de forma divertida.</li>
                 <li>Missões de programação com desafios práticos.</li>
             </ul>
-            <p class="mt-6 text-center text-lg text-white">
-                E muito mais! Junte-se a nós nessa jornada onde aprender é tão empolgante quanto jogar. 🎮
-            </p>
+            <p>E muito mais! Junte-se a nós nessa jornada onde aprender é tão empolgante quanto jogar. 🎮</p>
         </section>
-
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-purple-900 text-white">
-        <div class="container mx-auto px-4 py-6 text-center">
+    <!-- FOOTER PADRÃO -->
+    <footer class="footer">
+        <div class="footer-container">
             <p>&copy; <span id="current-year"></span> GiocandoJ3. Todos os direitos reservados.</p>
-            <div class="flex justify-center gap-6 mt-4">
-                <a href="#"><i class="fab fa-instagram text-2xl hover:text-pink-500"></i></a>
-                <a href="#"><i class="fab fa-github text-2xl hover:text-gray-400"></i></a>
-                <a href="#"><i class="fab fa-linkedin text-2xl hover:text-blue-400"></i></a>
+            <div class="social">
+                <a href="https://www.instagram.com/giocandoj3/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
     </footer>
