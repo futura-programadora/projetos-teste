@@ -47,6 +47,11 @@ body {
     margin: 20px 0px;
 }
 
+main {
+    width: 100vw;
+    margin: auto;
+}
+
 .header-container {
     max-width: 1200px;
     margin: auto;
@@ -71,6 +76,19 @@ body {
 .site-title {
     font-size: 24px;
     font-weight: bold;
+}
+
+/* TÍTULO ESCONDIDO NO CELULAR — ADAPTADO */
+@media (max-width: 768px) {
+    .site-title {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .site-title {
+        display: block;
+    }
 }
 
 .menu {
@@ -170,7 +188,7 @@ body {
 }
 
 /* =========================================================
-   CARDS PRINCIPAIS (SEÇÃO DE PLATAFORMAS)
+   CARDS PRINCIPAIS
 ========================================================= */
 .card {
     background: rgb(39, 1, 101);
@@ -380,7 +398,7 @@ input:focus {
 }
 
 /* =========================================================
-   DEPOIMENTOS (CARDS PEQUENOS)
+   DEPOIMENTOS
 ========================================================= */
 .dep-grid {
     display: grid;
@@ -416,7 +434,7 @@ input:focus {
 }
 
 /* =========================================================
-   PARCEIROS (CARDS MENORES)
+   PARCEIROS
 ========================================================= */
 .parc-grid {
     display: grid;
@@ -506,9 +524,9 @@ input:focus {
     display: grid;
     gap: 30px;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    width: 100%;
 }
 
-/* CARD */
 .grid .card {
     background: #ffffff;
     border-radius: 14px;
@@ -517,20 +535,17 @@ input:focus {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* EFEITO HOVER */
 .grid .card:hover {
     transform: translateY(-6px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
-/* IMAGENS */
 .grid .card img {
     width: 100%;
     height: 230px;
     object-fit: cover;
 }
 
-/* CONTEÚDO */
 .grid .card-content {
     padding: 18px;
     text-align: center;
@@ -550,7 +565,6 @@ input:focus {
     color: #555;
 }
 
-/* LINKS */
 .grid .card-content a {
     display: inline-block;
     padding: 10px 18px;
@@ -566,7 +580,6 @@ input:focus {
     background: #47237b;
 }
 
-/* EXTRA PARA TELAS MUITO PEQUENAS */
 @media (max-width: 480px) {
     .grid {
         padding: 10px;
@@ -578,14 +591,15 @@ input:focus {
     }
 }
 
-/* === DIFERENCIAIS (Seção) === */
+/* =========================================================
+   DIFERENCIAIS
+========================================================= */
 .dif-container {
   max-width: 1200px;
   margin: 40px auto;
   padding: 28px 20px;
 }
 
-/* título da seção (já usa .titulo-section) */
 .dif-container .titulo-section {
   margin-bottom: 22px;
   font-size: 26px;
@@ -593,7 +607,6 @@ input:focus {
   color: var(--rocho);
 }
 
-/* GRID RESPONSIVO */
 .grid-container {
   display: grid;
   gap: 22px;
@@ -602,7 +615,6 @@ input:focus {
   padding: 6px;
 }
 
-/* CARD */
 .grid-item {
   background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(250,250,250,0.98) 100%);
   border-radius: 14px;
@@ -614,10 +626,9 @@ input:focus {
   flex-direction: column;
   gap: 12px;
   justify-content: flex-start;
-  border: 1px solid rgba(92,50,158,0.06); /* leve contorno */
+  border: 1px solid rgba(92,50,158,0.06);
 }
 
-/* hover / focus (acessibilidade) */
 .grid-item:hover,
 .grid-item:focus-within {
   transform: translateY(-6px);
@@ -626,7 +637,6 @@ input:focus {
   border-color: var(--rocho-claro);
 }
 
-/* Ícone grande */
 .icon {
   font-size: 38px;
   line-height: 1;
@@ -634,14 +644,13 @@ input:focus {
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: rgba(92,50,158,0.10); /* círculo sutil */
+  background: rgba(92,50,158,0.10);
   color: var(--rocho-claro);
   display: grid;
   place-items: center;
   margin: 0 auto 4px auto;
 }
 
-/* título do card */
 .card-title {
   font-size: 18px;
   font-weight: 700;
@@ -649,16 +658,14 @@ input:focus {
   margin-top: 4px;
 }
 
-/* texto do card */
 .grid-item p {
   font-size: 14px;
   color: var(--cinza);
   line-height: 1.45;
   margin-top: 4px;
-  flex: 1; /* empurra o conteúdo para baixo se precisar */
+  flex: 1;
 }
 
-/* pequena barra decorativa no rodapé do card */
 .grid-item::after {
   content: "";
   height: 4px;
@@ -669,7 +676,6 @@ input:focus {
   display: block;
 }
 
-/* ajustes para telas muito pequenas */
 @media (max-width: 420px) {
   .grid-container { gap: 16px; }
   .grid-item { padding: 16px; border-radius: 12px; }
