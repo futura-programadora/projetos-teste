@@ -727,4 +727,6 @@ input:focus {
   .icon { width: 58px; height: 58px; font-size: 32px; }
   .card-title { font-size: 16px; }
   .grid-item p { font-size: 13px; }
+  .link-header { font-size: 13px; }
+  .menu {gap: 14px; }
 }
