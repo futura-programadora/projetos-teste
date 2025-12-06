@@ -180,9 +180,32 @@
     </section>
 
     <section class="chat">
-        <h3>Chat do Giocando</h3>
-        <p>Em breve um chat inteligente para te ajudar!</p>
+        <p class="chat-desc">
+            Fale com a gente! 😊<br>
+            Clique em um tema ou escreva sua pergunta!
+        </p>
+
+        <!-- 🔹 Botões dos principais tópicos -->
+        <div class="topic-buttons">
+            <button data-intent="quimica">🧪 Química</button>
+            <button data-intent="historia">⚔️ História</button>
+            <button data-intent="python">🐍 Python</button>
+            <button data-intent="biomas">🌎 Biomas</button>
+            <button data-intent="contato">📩 Contato</button>
+            <button data-intent="saude">💚 Saúde</button>
+        </div>
+
+        <div id="chat-area" class="chat-area">
+            <!-- Mensagens aparecem aqui -->
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="mensagem" placeholder="Digite sua pergunta..." autocomplete="off">
+            <button id="enviar">Enviar</button>
+        </div>
     </section>
+
+
 
     <footer class="footer">
         <div class="footer-container">
@@ -202,6 +225,7 @@
             chat.style.display = (chat.style.display === "none" || chat.style.display === "") ? "block" : "none";
         }
     </script>
+    <script src="./scripts/chatbot.js"></script>
 </body>
 
 </html>
